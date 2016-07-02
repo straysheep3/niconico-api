@@ -1,0 +1,29 @@
+<h1>ニコニコAPIサンプル</h1>
+  <%= form_for @info do |f| %>
+    <%= f.text_field :keyword %>
+    <%= f.submit %>
+  <% end %>
+<hr>
+<div id="pins" class="transitions-enabled">
+  <% @infos.each do |info| %>
+  <div class="panel panel-default box">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= link_to "http://www.nicovideo.jp/watch/" + info.cmsid + "?ref=search_key_video" do %>
+          <%= image_tag(info.thumbnail) %>
+        <% end %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <%= info.title.html_safe %>
+    </div>
+    <div class="panel-footer">
+      再生数: <%= info.view_counter %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="text-center">
+  <%= paginate @infos  %>
+</div>
