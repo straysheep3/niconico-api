@@ -1,9 +1,10 @@
 <h1>ニコニコAPIサンプル</h1>
   <%= form_for @info do |f| %>
     <%= f.text_field :keyword %>
-    <%= f.submit %>
+    <%= f.button "検索", class: "btn btn-primary" %>
   <% end %>
 <hr>
+
 <div id="pins" class="transitions-enabled">
   <% @infos.each do |info| %>
   <div class="panel panel-default box">

@@ -3,11 +3,10 @@ class InfosController < ApplicationController
   def index
     @info = Info.new
 
-    @infos = Info.all.order("created_at desc").page(params[:page]).per(10)
+    @infos = Info.all.order("created_at desc").page(params[:page]).per(12)
   end
 
   def show
-    #code
   end
 
   def new
@@ -39,7 +38,8 @@ class InfosController < ApplicationController
   end
 
   def destroy
-    #code
+    @info.destroy.all
+    redirect_to root_url
   end
 
   private
